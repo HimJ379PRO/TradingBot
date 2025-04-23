@@ -6,3 +6,4 @@ logs/
 # *.csv
 *.log
 config/config.py
+.DS_Store
