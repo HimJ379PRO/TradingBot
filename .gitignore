@@ -7,3 +7,4 @@ logs/
 *.log
 config/config.py
 .DS_Store
+strategies/
