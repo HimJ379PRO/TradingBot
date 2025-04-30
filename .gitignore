@@ -8,3 +8,5 @@ logs/
 config/config.py
 .DS_Store
 strategies/
+playground_yfinance_test.ipynb
+playground_bot.ipynb
