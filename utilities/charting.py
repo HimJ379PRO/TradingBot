@@ -2,12 +2,14 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-def plot_candlestick_chart(df):
+def plot_candlesticks_RSI_chart(df, rsi_period=14):
     """
     Plots a candlestick chart using Plotly with a range slider.
+    Adds an RSI indicator below the candlestick chart.
 
     Parameters:
         df(pd.DataFrame): A DataFrame containing 'Date', 'Open', 'High', 'Low', 'Close' columns.
+        rsi_period(int): The period for the RSI calculation. Default is 14.
     """
     # Step 1: Create a figure with 2 rows (1 for price, 1 for RSI)
     fig = make_subplots(
@@ -31,7 +33,7 @@ def plot_candlestick_chart(df):
     # Step 3: RSI line (Row 2)
     fig.add_trace(go.Scatter(
         x=df.index,
-        y=df['RSI'],
+        y=df['RSI_14' if rsi_period == 14 else 'RSI_9'],
         mode='lines',
         name='RSI',
         line=dict(color='blue')
