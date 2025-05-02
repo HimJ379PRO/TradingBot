@@ -33,7 +33,7 @@ def plot_candlesticks_RSI_chart(df, rsi_period=14):
     # Step 3: RSI line (Row 2)
     fig.add_trace(go.Scatter(
         x=df.index,
-        y=df['RSI_14' if rsi_period == 14 else 'RSI_9'],
+        y=df['RSI_14' if rsi_period == 14 else 'RSI_8'],
         mode='lines',
         name='RSI',
         line=dict(color='blue')
