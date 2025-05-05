@@ -6,6 +6,7 @@ logs/
 # *.csv
 *.log
 config/config.py
+config.py
 .DS_Store
 strategies/
 playground_yfinance_test.ipynb
