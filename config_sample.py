@@ -2,12 +2,10 @@ import socket
 import uuid
 import requests
 
-# AngelOne SmartAPI configuration
-# Historical API
-API_KEY = "my_api_key"
-SECRET_KEY = "my_secret_key"
-CLIENT_ID = "my_client_id"
-TOTP_SECRET = "my_totp_secret" # For 2FA (if using pyotp) 
+# === Telegram Bot configuration ===
+BOT_API_TOKEN = "my_bot_api_token"
+GROUP_CHAT_ID = "my_group_chat_id"
+
 
 # === System Info ===
 def get_local_ip():
@@ -31,3 +29,11 @@ MAC_ADDRESS = get_mac_address()
 
 if __name__ == "__main__":
     print("LOCAL IP: "+LOCAL_IP, "PUBLIC IP: "+PUBLIC_IP, "MAC ADDRESS: "+MAC_ADDRESS, sep="\n")
+
+
+# === AngelOne SmartAPI configuration ===
+# Historical API
+API_KEY = "my_api_key"
+SECRET_KEY = "my_secret_key"
+CLIENT_ID = "my_client_id"
+TOTP_SECRET = "my_totp_secret" # For 2FA (if using pyotp) 
