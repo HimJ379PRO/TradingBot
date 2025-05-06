@@ -1,6 +1,7 @@
 # .gitignore
 __pycache__/
 data/raw
+data/indicators
 logs/
 .env
 # *.csv
