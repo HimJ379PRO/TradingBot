@@ -26,19 +26,19 @@ def update_daily_data(tickers, data_folder="data/raw"):
                 df = pd.read_csv(file_path, parse_dates=['Date'], index_col='Date')
                 last_downloaded_date = df.index.max()
                 if last_downloaded_date == now.date():
-                    print(f"✅ {ticker} is already up to date.")
+                    print(f"✅ {ticker} Daily is already up to date.")
                     continue
-                elif last_downloaded_date + pd.Timedelta(days=1) == now.date():
-                    start_date = last_downloaded_date
+                # elif last_downloaded_date + pd.Timedelta(days=1) == now.date():
+                #     start_date = last_downloaded_date
                 else:
-                    start_date = last_downloaded_date + pd.Timedelta(days=1)
+                    start_date = last_downloaded_date
             else:
                 # Handle new file cases
                 start_date = pd.to_datetime("2020-01-01")
                 df = None
 
             # Fetch data
-            print(f"⬇️ Downloading {ticker} from {start_date.date()} to {end_date.date()}...")
+            print(f"⬇️ Downloading {ticker} Daily data from {start_date.date()} to {end_date.date()}...")
             data = yf.download(ticker, start=start_date, end=end_date, ignore_tz=True, interval="1d", rounding=True)
 
             if not data.empty:
@@ -57,11 +57,11 @@ def update_daily_data(tickers, data_folder="data/raw"):
                     mode = 'a' if file_exists else 'w'
                     header = not file_exists
                     new_data.to_csv(file_path, mode=mode, header=header, index=True)
-                    print(f"✅ {ticker} updated with {len(new_data)} new rows at {now.time().strftime('%H:%M:%S')}.")
+                    print(f"✅ {ticker} Daily data updated with {len(new_data)} new rows at {now.time().strftime('%H:%M:%S')}.")
                 else:
-                    print(f"✅ {ticker} is already up to date. No new rows to add.")
+                    print(f"✅ {ticker} Daily data is already up to date. No new rows to add.")
             else:
-                print(f"⚠️ No new data downloaded for '{ticker}'.")
+                print(f"⚠️ No new data downloaded for '{ticker}' Daily.")
 
     except Exception as e:
         print(f"❌ Error while updating: {e}")
@@ -102,7 +102,7 @@ def update_60m_data(tickers, data_folder="data/raw"):
                 start_datetime = pd.to_datetime("2024-01-01")
                 
             # Fetch data
-            print(f"⬇️ Downloading {ticker} from {start_datetime} to {end_datetime}...")
+            print(f"⬇️ Downloading {ticker} 60m data from {start_datetime} to {end_datetime}...")
             data = yf.download(ticker, start=start_datetime, end=end_datetime, ignore_tz=True, interval="60m", rounding=True)
 
             if not data.empty:
@@ -123,9 +123,9 @@ def update_60m_data(tickers, data_folder="data/raw"):
                     mode = 'a' if file_exists else 'w'
                     header = not file_exists
                     new_data.to_csv(file_path, mode=mode, header=header, index=True)
-                    print(f"✅ {ticker} updated with {len(new_data)} new rows at {now.time().strftime('%H:%M:%S')}.")
+                    print(f"✅ {ticker} 60m data updated with {len(new_data)} new rows at {now.time().strftime('%H:%M:%S')}.")
                 else:
-                    print(f"✅ {ticker} is already up to date. No new rows added.")
+                    print(f"✅ {ticker} 60m data is already up to date. No new rows added.")
             else:
                 print(f"⚠️ No new data downloaded for '{ticker}'.")
 
