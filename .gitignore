@@ -2,11 +2,11 @@
 __pycache__/
 data/raw
 data/indicators
+data/signals
 logs/
 .env
 # *.csv
 *.log
-config/config.py
 config.py
 .DS_Store
 strategies/
