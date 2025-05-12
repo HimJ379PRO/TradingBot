@@ -28,8 +28,6 @@ def update_daily_data(tickers, data_folder="data/raw"):
                 if last_downloaded_date == now.date():
                     print(f"✅ {ticker} Daily is already up to date.")
                     continue
-                # elif last_downloaded_date + pd.Timedelta(days=1) == now.date():
-                #     start_date = last_downloaded_date
                 else:
                     start_date = last_downloaded_date
             else:
@@ -39,7 +37,7 @@ def update_daily_data(tickers, data_folder="data/raw"):
 
             # Fetch data
             print(f"⬇️ Downloading {ticker} Daily data from {start_date.date()} to {end_date.date()}...")
-            data = yf.download(ticker, start=start_date, end=end_date, ignore_tz=True, interval="1d", rounding=True)
+            data = yf.download(ticker, start=start_date, end=end_date, ignore_tz=True, interval="1d", rounding=True, progress=False)
 
             if not data.empty:
                 if isinstance(data.columns, pd.MultiIndex):
@@ -103,7 +101,7 @@ def update_60m_data(tickers, data_folder="data/raw"):
                 
             # Fetch data
             print(f"⬇️ Downloading {ticker} 60m data from {start_datetime} to {end_datetime}...")
-            data = yf.download(ticker, start=start_datetime, end=end_datetime, ignore_tz=True, interval="60m", rounding=True)
+            data = yf.download(ticker, start=start_datetime, end=end_datetime, ignore_tz=True, interval="60m", rounding=True, progress=False)
 
             if not data.empty:
                 if isinstance(data.columns, pd.MultiIndex):
@@ -169,7 +167,7 @@ def update_5m_data(tickers, data_folder="data/raw"):
 
             # Fetch data
             print(f"⬇️ Downloading {ticker} 5m data from {start_datetime} to {end_datetime}...")
-            data = yf.download(ticker, start=start_datetime, end=end_datetime, interval="5m", ignore_tz=True, rounding=True)
+            data = yf.download(ticker, start=start_datetime, end=end_datetime, interval="5m", ignore_tz=True, rounding=True, progress=False)
 
             if not data.empty:
                 if isinstance(data.columns, pd.MultiIndex):
