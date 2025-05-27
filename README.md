@@ -76,6 +76,8 @@ This bot processes intraday and historical market data, generates entry/exit sig
     - Price info, RSI/EMA stats
     - Trade performance summary, etc.
 
+<img src="https://github.com/user-attachments/assets/7a64f8c1-ed6b-48f7-8a6b-c8f5437c55d1" width="350">
+
 ### 7. Job Scheduling
 
 - APScheduler runs:
@@ -87,7 +89,15 @@ This bot processes intraday and historical market data, generates entry/exit sig
 ---
 
 ## 📈  Performance Summary (Backtesting + Live Market)
+**STRATEGY 3: Re-enter on trend change.**
 
+The example below is the best case scenario when RELIANCE.NSE was either bullish or bearish (not sideways) over a period of 3-months.\
+The performace of the bot varies if the market is choppy. The issue will be fixed in the next version of the trading bot.
+
+> [!Tip]
+> View the complete tradelog: [tradelogs/strategy_3_re-enter_reliance_60m.csv](/tradelogs/strategy_3_re-enter_reliance_60m.csv)
+
+**Summary**
 | Metric | Value |
 | --- | --- |
 | Total Trades | 20 |
@@ -119,6 +129,8 @@ $\text{ROI} = \left( \frac{126300}{126591} \right) \times 100 \approx 99.77\%$
 
 ## 🔍 Explore Key Project Folders
 
+- **`strategies/`**: [Private Folder] Contains entry and exit strategies based on the generated signals
+- **`notebooks/`**: [Private Folder] Contains playground/testing jupyter notebooks
 - **`tradelogs/`**: Captures detailed runtime logs and event triggers
 - **`utilities/`**: Contains helper scripts for modular data and signal operations
 - **`data/signals/`**: Final outputs of trade signals with trade status and MTM
@@ -141,4 +153,4 @@ $\text{ROI} = \left( \frac{126300}{126591} \right) \times 100 \approx 99.77\%$
 
 ---
 
-For queries or contributions, feel free to reach out!
+For queries, contributions, or **if you want to develop your own trading bot feel free to reach out!** [💼 LinkedIn](https://www.linkedin.com/in/datawizhimj/)
