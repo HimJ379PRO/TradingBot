@@ -45,7 +45,7 @@ def plot_candlesticks_RSI_chart(df, rsi_period=14):
 
     # Step 5: Layout
     fig.update_layout(
-        title='RELIANCE - Candlestick with RSI (14)',
+        title=f'RELIANCE - Candlestick with RSI ({rsi_period})',
         xaxis_rangeslider_visible=False,
         height=800,
         showlegend=False
